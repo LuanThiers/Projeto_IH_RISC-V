@@ -41,6 +41,7 @@ module Datapath #(
 );
 
   logic [PC_W-1:0] PC, PCPlus4, Next_PC;
+  logic [DATA_W-1:0] Resultado;
   logic [INS_W-1:0] Instr;
   logic [DATA_W-1:0] Reg1, Reg2;
   logic [DATA_W-1:0] ReadData;
@@ -221,6 +222,7 @@ module Datapath #(
       FAmux_Result,
       SrcB,
       ALU_CC,
+      B.Curr_Pc,
       ALUResult
   );
   BranchUnit #(9) brunit (
@@ -246,6 +248,7 @@ module Datapath #(
       C.MemWrite <= 0;
       C.Pc_Imm <= 0;
       C.Pc_Four <= 0;
+      C.Jal <= 0;
       C.Imm_Out <= 0;
       C.Alu_Result <= 0;
       C.RD_Two <= 0;
@@ -258,6 +261,7 @@ module Datapath #(
       C.MemRead <= B.MemRead;
       C.MemWrite <= B.MemWrite;
       C.Pc_Imm <= BrImm;
+      C.Jal <= B.Jal;
       C.Pc_Four <= Old_PC_Four;
       C.Imm_Out <= B.ImmG;
       C.Alu_Result <= ALUResult;
@@ -293,6 +297,7 @@ module Datapath #(
       D.RegWrite <= 0;
       D.MemtoReg <= 0;
       D.Pc_Imm <= 0;
+      D.Jal <= 0;
       D.Pc_Four <= 0;
       D.Imm_Out <= 0;
       D.Alu_Result <= 0;
@@ -302,6 +307,7 @@ module Datapath #(
       D.RegWrite <= C.RegWrite;
       D.MemtoReg <= C.MemtoReg;
       D.Pc_Imm <= C.Pc_Imm;
+      D.Jal <= C.Jal;
       D.Pc_Four <= C.Pc_Four;
       D.Imm_Out <= C.Imm_Out;
       D.Alu_Result <= C.Alu_Result;
@@ -316,6 +322,13 @@ module Datapath #(
       D.Alu_Result,
       D.MemReadData,
       D.MemtoReg,
+      Resultado
+  );
+
+   mux2 #(32) ana_mux (
+      Resultado,
+      D.Pc_Four,
+      D.Jal,
       WrmuxSrc
   );
 

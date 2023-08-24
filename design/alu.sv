@@ -9,6 +9,7 @@ module alu#(
         input logic [DATA_WIDTH-1:0]    SrcB,
 
         input logic [OPCODE_LENGTH-1:0]    Operation,
+	input logic [8:0] Pc4,
         output logic[DATA_WIDTH-1:0] ALUResult
         );
     
@@ -47,7 +48,7 @@ module alu#(
 	    4'b1111:	    //BGE
 		    ALUResult = ((SrcA > SrcB)||(SrcA == SrcB)) ? 1 : 0;
 	    4'b1101: 	    //JAL & JALR
-		    ALUResult = 1;
+		    ALUResult = Pc4;
             default:
                     ALUResult = 0;
             endcase

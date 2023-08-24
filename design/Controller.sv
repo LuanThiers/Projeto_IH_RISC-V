@@ -21,7 +21,7 @@ module Controller (
     output logic Jal
 );
 
-  logic [6:0] R_TYPE, LW, SW, BR, I_TYPE, U_TYPE, HALT, JAL;
+  logic [6:0] R_TYPE, LW, SW, BR, I_TYPE, U_TYPE, HALT, JAL, JALR;
  
   assign R_TYPE = 7'b0110011;  //add,and
   assign LW = 7'b0000011;  //lw
@@ -30,11 +30,12 @@ module Controller (
   assign I_TYPE = 7'b0010011; // addi, slli ...
   assign U_TYPE = 7'b0110111; // lui..
   assign HALT = 7'b0000001; //halt..
-  assign JAL = 7'b1100111; //jal...
+  assign JAL = 7'b1101111; //jal...
+  assign JALR = 7'b1100111; //jalr...
 
-  assign ALUSrc = ((Opcode == LW) || (Opcode == SW) || (Opcode == I_TYPE) || (Opcode == U_TYPE));
+  assign ALUSrc = ((Opcode == LW) || (Opcode == SW) || (Opcode == I_TYPE) || (Opcode == U_TYPE) || (Opcode == JALR));
   assign MemtoReg = (Opcode == LW);
-  assign RegWrite = ((Opcode == R_TYPE) || (Opcode == LW) || (Opcode == I_TYPE) || (Opcode == U_TYPE));
+  assign RegWrite = ((Opcode == R_TYPE) || (Opcode == LW) || (Opcode == I_TYPE) || (Opcode == U_TYPE) || (Opcode == JAL) || (Opcode == JALR));
   assign MemRead = (Opcode == LW);
   assign MemWrite = (Opcode == SW);
   assign ALUOp[0] = ((Opcode == BR) || (Opcode == U_TYPE));
