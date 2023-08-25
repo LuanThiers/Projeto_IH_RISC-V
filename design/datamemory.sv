@@ -45,7 +45,7 @@ module datamemory #(
     if (MemRead) begin
       case (Funct3)
         3'b010:  //LW
-        rd <= Dataout;
+        rd <= $signed(Dataout);
 	3'b000: //LB
 	rd <= $signed(auxOutS0);
 	3'b100: //LBU
@@ -59,7 +59,7 @@ module datamemory #(
       case (Funct3)
         3'b010: begin  //SW
           Wr <= 4'b1111;
-          Datain <= wd;
+          Datain <= $signed(wd);
         end
 	3'b000: begin // SB
 	  Wr <= 4'b0100;

@@ -86,12 +86,12 @@ Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 
 Top level modules:
 	ALUController
 
-} {} {}} C:/Users/luant/Desktop/design/RISC_V.sv {1 {vlog -work work -sv -stats=none C:/Users/luant/Desktop/design/RISC_V.sv
+} {} {}} C:/Users/luant/Desktop/design/mux4.sv {1 {vlog -work work -sv -stats=none C:/Users/luant/Desktop/design/mux4.sv
 Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
--- Compiling module riscv
+-- Compiling module mux4
 
 Top level modules:
-	riscv
+	mux4
 
 } {} {}} C:/Users/luant/Desktop/design/RegFile.sv {1 {vlog -work work -sv -stats=none C:/Users/luant/Desktop/design/RegFile.sv
 Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
@@ -100,12 +100,12 @@ Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 
 Top level modules:
 	RegFile
 
-} {} {}} C:/Users/luant/Desktop/design/mux4.sv {1 {vlog -work work -sv -stats=none C:/Users/luant/Desktop/design/mux4.sv
+} {} {}} C:/Users/luant/Desktop/design/RISC_V.sv {1 {vlog -work work -sv -stats=none C:/Users/luant/Desktop/design/RISC_V.sv
 Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
--- Compiling module mux4
+-- Compiling module riscv
 
 Top level modules:
-	mux4
+	riscv
 
 } {} {}} C:/Users/luant/Desktop/design/Memoria32.sv {1 {vlog -work work -sv -stats=none C:/Users/luant/Desktop/design/Memoria32.sv
 Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
@@ -114,19 +114,19 @@ Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 
 Top level modules:
 	Memoria32
 
-} {} {}} C:/Users/luant/Desktop/design/tb_top.sv {1 {vlog -work work -sv -stats=none C:/Users/luant/Desktop/design/tb_top.sv
-Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
--- Compiling module tb_top
-
-Top level modules:
-	tb_top
-
 } {} {}} C:/Users/luant/Desktop/design/adder.sv {1 {vlog -work work -sv -stats=none C:/Users/luant/Desktop/design/adder.sv
 Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
 -- Compiling module adder
 
 Top level modules:
 	adder
+
+} {} {}} C:/Users/luant/Desktop/design/tb_top.sv {1 {vlog -work work -sv -stats=none C:/Users/luant/Desktop/design/tb_top.sv
+Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+-- Compiling module tb_top
+
+Top level modules:
+	tb_top
 
 } {} {}} C:/Users/luant/Desktop/design/HazardDetection.sv {1 {vlog -work work -sv -stats=none C:/Users/luant/Desktop/design/HazardDetection.sv
 Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
